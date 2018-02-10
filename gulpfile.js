@@ -8,6 +8,7 @@ var pug = require('gulp-pug');
 var beautify = require('gulp-html-beautify');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
+var gutil = require('gulp-util');
 // Set the banner content
 var banner = ['/*!\n',
   ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
@@ -88,6 +89,7 @@ gulp.task('js:minify', function() {
       '!./js/*.min.js'
     ])
     .pipe(uglify())
+    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
     .pipe(rename({
       suffix: '.min'
     }))

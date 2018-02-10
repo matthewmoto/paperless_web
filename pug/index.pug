@@ -785,5 +785,8 @@ html(lang='en')
       include includes/js/custom.pug
 
       // Custom scripts for this page
-      script(src='js/sb-admin-datatables.min.js')
-      script(src='js/sb-admin-charts.min.js')
+      //HACK: Don't minify while we're developing
+      script(src='js/sb-admin-datatables.js')
+      script(src='js/sb-admin-charts.js')
+      //script(src='js/sb-admin-datatables.min.js')
+      //script(src='js/sb-admin-charts.min.js')
